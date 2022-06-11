@@ -1,0 +1,50 @@
+<div style="width: 75vw;max-height: 75vh;">
+  <nb-card>
+    <nb-card-body>
+      <div class="row">
+      <div class="form-group col-sm-12 col-md-6 col-lg-3 input-group-sm">
+        <label class="label" for="titre">titre :</label>
+        <input [(ngModel)]="offre.titre" type="text" placeholder="titre" [disabled]="show" class="form-control" name="reference" />
+      </div>
+      <div class="form-group col-sm-12 col-md-6 col-lg-3 input-group-sm">
+        <label class="label" for="service">service :</label>
+        <input [(ngModel)]="offre.service" type="text" placeholder="serivce" [disabled]="show" class="form-control" name="designation111" />
+      </div>
+      <div class="form-group col-sm-12 col-md-6 col-lg-3 input-group-sm">
+        <label class="label" for="descriptionBesoin">description Besoin :</label>
+        <textarea [(ngModel)]="offre.descriptionBesoin" type="text" placeholder="description Besoin" [disabled]="show" class="form-control" name="prix" ></textarea>
+      </div>
+      <div class="form-group col-sm-12 col-md-6 col-lg-3 input-group-sm">
+        <label class="label" for="descriptionOffre">description Offre :</label>
+        <input type="text" [(ngModel)]="offre.descriptionOffre" placeholder="description Offre" [disabled]="show" class="form-control" name="quantite" />
+      </div>
+      <div class="form-group col-sm-12 col-md-6 col-lg-3 input-group-sm">
+        <label class="label" for="profilCherche">profil Cherche :</label>
+        <input type="text" [(ngModel)]="offre.profilCherche" placeholder="profilCherche" [disabled]="show" class="form-control" name="quantite" />
+      </div>
+
+      <div class="form-group col-sm-12 col-md-6 col-lg-3 input-group-sm">
+        <label class="label" for="competencesTechniques">competencesTechniques :</label>
+        <input type="text" [(ngModel)]="offre.competencesRequises" placeholder="competences Techniques" [disabled]="show" class="form-control" name="quantite" />
+      </div>
+      <div class="form-group col-sm-12 col-md-6 col-lg-3 input-group-sm">
+        <label class="label" for="dateSoumission">date de Soumission :</label>
+        <input type="date" [(ngModel)]="offre.dateSoumission" placeholder="dateSoumission" [disabled]="show" class="form-control" name="quantite" />
+      </div>
+      <div class="form-group col-sm-12 col-md-6 col-lg-3 input-group-sm">
+        <label class="label" for="dateCloture">date de cloture :</label>
+        <input type="date" [(ngModel)]="offre.dateCloture" placeholder="dateCloture" [disabled]="show" class="form-control" name="quantite" />
+      </div>
+
+    </div>
+    </nb-card-body>
+  </nb-card>
+  <div style="text-align:right;">
+    <a routerLink="pages/admin/postuler"style="cursor: pointer;align-content: center;"(click)="close()">Postuler</a>
+    <button nbButton status="success" (click)="save()" [hidden]="show" style="cursor: pointer;align-content: center;">{{btn}}
+      &nbsp;<i class="fa fa-check" aria-hidden="true"></i></button>
+    &nbsp;
+    <button nbButton status="danger" style="cursor: pointer;align-content: center;" (click)="close()">Annuler
+      &nbsp;<i class="fa fa-window-close" aria-hidden="true"></i></button>
+  </div>
+</div>

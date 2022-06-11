@@ -1,0 +1,142 @@
+<form>
+  <div>
+    <h3>Experiences</h3><button type="button" (click)="addExperience()" class="btn btn-primary">Add More</button>
+    <div class="card text-left" formArrayName="experiences" *ngFor="let quantity of experiences().controls; let i=index"
+      [formGroupName]="i">
+      <div class="card-header">
+        Experience
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="exampleInputEmail1">qualification</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" formControlName="qualification"
+            aria-describedby="emailHelp" placeholder="Nom">
+
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Mission</label>
+          <textarea id="textarea" formControlName="mission" rows="3"></textarea>
+
+
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">date entrée</label>
+          <input type="date" class="form-control" formControlName="date_entre" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">date sortie</label>
+          <input type="date" class="form-control" formControlName="date_sortie" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+
+        </div>
+        <div class="form-group">
+          <label for="select_ec">Société</label>
+
+          <select id="select_ec" formControlName="societe">
+            <option selected>orange</option>
+            <option value="1">telnet</option>
+            <option value="2">vermeg</option>
+          </select>
+
+        </div>
+      </div>
+      <div class="card-footer text-muted">
+        <button (click)="removeExperience(i)" class="btn btn-danger">Remove</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div>
+  <h3>Stages</h3><button type="button" (click)="addStage()" class="btn btn-primary">Add More</button>
+    <div class="card text-left" formArrayName="experiences" *ngFor="let quantity of stages().controls; let i=index"
+      [formGroupName]="i">
+      <div class="card-header">
+        Stage
+      </div>
+      <div class="card-body">
+        <div class="form-group">
+          <label for="exampleInputEmail1">intitulé</label>
+          <input type="text" class="form-control" id="exampleInputEmail1" formControlName="titre"
+            aria-describedby="emailHelp" placeholder="sujet de stage">
+
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Mission</label>
+          <textarea id="textarea" formControlName="mission" rows="3"></textarea>
+
+
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">date entrée</label>
+          <input type="date" class="form-control" formControlName="date_entre" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">date sortie</label>
+          <input type="date" class="form-control" formControlName="date_sortie" id="exampleInputEmail1"
+            aria-describedby="emailHelp">
+
+        </div>
+        <div class="form-group">
+          <label for="select_ec">Société</label>
+
+          <select id="select_ec" formControlName="societe">
+            <option selected>orange</option>
+            <option value="1">telnet</option>
+            <option value="2">vermeg</option>
+          </select>
+
+        </div>
+      </div>
+      <div class="card-footer text-muted">
+        <button (click)="removeExperience(i)" class="btn btn-danger">Remove</button>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div>
+    <h3>Stages</h3><button type="button" (click)="addStage()" class="btn btn-primary">Add More</button>
+      <div class="card text-left" formArrayName="experiences" *ngFor="let quantity of stages().controls; let i=index"
+        [formGroupName]="i">
+        <div class="card-header">
+          Stage
+        </div>
+        <div class="card-body">
+          <div class="form-group">
+            <label for="exampleInputEmail1">intitulé</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" formControlName="titre"
+              aria-describedby="emailHelp" placeholder="sujet de stage">
+
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">specialité</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" formControlName="titre"
+              aria-describedby="emailHelp" placeholder="specialité">
+
+          </div>
+
+          <div class="form-group">
+            <label for="select_ec">etablissement</label>
+
+            <select id="select_ec" formControlName="societe">
+              <option selected>ISIMM</option>
+              <option value="1">IPSAS</option>
+              <option value="2">ISIMS</option>
+            </select>
+
+          </div>
+        </div>
+        <div class="card-footer text-muted">
+          <button (click)="removeDiplome(i)" class="btn btn-danger">Remove</button>
+        </div>
+      </div>
+
+    </div>
+</form>

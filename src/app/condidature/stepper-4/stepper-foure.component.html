@@ -1,0 +1,159 @@
+<!-- <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+ -->
+
+
+<div class="container">
+
+  <h1> Dynamically Add New Input Fields in Angular </h1>
+
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+
+    <p>
+      <label for="name">Product Name:</label>
+      <input type="text" id="name" name="name" formControlName="name" class="form-control">
+    </p>
+    ---------------debut experience------------
+    <table class="table table-bordered" formArrayName="experiences">
+      <tr>
+        <th colspan="2">Add Multiple Stage:</th>
+        <th width="150px"><button type="button" (click)="addExperience()" class="btn btn-primary">Add More</button></th>
+      </tr>
+      <tr *ngFor="let quantity of experiences().controls; let i=index" [formGroupName]="i">
+        <td>
+            qualification :
+            <input type="text" formControlName="qualification" class="form-control">
+            mission:
+            <input type="text" formControlName="mission" class="form-control">
+            <select id="select_ec" formControlName="societe" class="form-control">
+              <option selected>orange</option>
+              <option value="1">telnet</option>
+              <option value="2">vermeg</option>
+            </select>
+        </td>
+        <td>
+          date d'entrée:
+          <input type="date" formControlName="date_entree" class="form-control">
+          date de fin:
+            <input type="date" formControlName="date_sortie" class="form-control">
+        </td>
+
+        <td>
+            <button (click)="removeExperience(i)" class="btn btn-danger">Remove</button>
+        </td>
+      </tr>
+    </table>
+    ---------------fin experience---------------
+-------------------debut stage-------------------
+    <table class="table table-bordered" formArrayName="stages">
+      <tr>
+        <th colspan="2">Add Multiple Stage:</th>
+        <th width="150px"><button type="button" (click)="addStage()" class="btn btn-primary">Add More</button></th>
+      </tr>
+      <tr *ngFor="let quantity of stages().controls; let i=index" [formGroupName]="i">
+        <td>
+            titre :
+            <input type="text" formControlName="titre" class="form-control">
+            mission:
+            <input type="text" formControlName="mission" class="form-control">
+            <select id="select_ec" formControlName="societe" class="form-control">
+              <option selected>orange</option>
+              <option value="1">telnet</option>
+              <option value="2">vermeg</option>
+            </select>
+        </td>
+        <td>
+          date d'entrée:
+          <input type="date" formControlName="date_entree" class="form-control">
+          date de fin:
+            <input type="date" formControlName="date_sortie" class="form-control">
+        </td>
+
+        <td>
+            <button (click)="removeStage(i)" class="btn btn-danger">Remove</button>
+        </td>
+      </tr>
+    </table>
+    ----------------fin stage---------------------------
+    -----------------debut diplome------------------------
+    <table class="table table-bordered" formArrayName="diplomes">
+      <tr>
+        <th colspan="2">Add Multiple Diplome:</th>
+        <th width="150px"><button type="button" (click)="addDiplome()" class="btn btn-primary">Add More</button></th>
+      </tr>
+      <tr *ngFor="let quantity of diplomes().controls; let i=index" [formGroupName]="i">
+        <td>
+            titre :
+            <input type="text" formControlName="titre" class="form-control">
+            specialité:
+            <input type="text" formControlName="specialite" class="form-control">
+
+        </td>
+        <td>
+          <select id="select_ec" formControlName="etablissement" class="form-control">
+            <option value ="ISIMM"selected >ISIMM</option>
+            <option value="IPSAS">IPSAS</option>
+            <option value="ENIS">ENIS</option>
+          </select>
+        </td>
+
+        <td>
+            <button (click)="removeDiplome(i)" class="btn btn-danger">Remove</button>
+        </td>
+      </tr>
+    </table>
+
+    ---------------fin diplome-----------------
+    ----------------debut competence-----------
+
+
+       <table class="table table-bordered" formArrayName="competences">
+      <tr>
+        <th colspan="2">Add Multiple competenes:</th>
+        <th width="150px"><button type="button" (click)="addCompetence()" class="btn btn-primary">Add More</button></th>
+      </tr>
+      <tr *ngFor="let c of competences().controls; let i=index" [formGroupName]="i">
+        <td>
+            domaine :
+            <input type="text" formControlName="domaine" class="form-control">
+
+
+        </td>
+        <td>
+          date d'entrée:
+          <select id="select_ec" formControlName="niveau" class="form-control">
+              <option value="debutant" selected>debutant</option>
+              <option value="intermediaire">intermediaire</option>
+              <option value="avancé">avancé</option>
+              <option value="expert">expert</option>
+            </select>
+        </td>
+
+        <td>
+            <button (click)="removeCompetence(i)" class="btn btn-danger">Remove</button>
+        </td>
+      </tr>
+    </table>
+    ----------------fin competence-------------
+
+    <button type="submit" class="btn btn-success">Submit</button>
+
+  </form>
+
+  <br/>
+  {{this.productForm.value | json}}
+</div>

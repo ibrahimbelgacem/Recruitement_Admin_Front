@@ -1,0 +1,34 @@
+<div style="width: 75vw;max-height: 75vh;">
+  <nb-card>
+    <nb-card-body>
+      <div class="row">
+      <div class="form-group col-sm-12 col-md-6 col-lg-3 input-group-sm">
+        <label class="label" for="emballage">emballage :</label>
+        <input [(ngModel)]="emballage.packing" type="text" placeholder="type d'emballage" [disabled]="show" class="form-control" name="emballage" />
+      </div>
+      
+      <!-- <div class="form-group col-sm-12 col-md-6 col-lg-3 input-group-sm">
+        <label class="label" for="produit">emballage :</label>
+      
+        
+        <ng-select [(ngModel)]="test">
+        <ng-option *ngFor="let p of prod" [value]="p.id">{{p.reference}}</ng-option>
+        </ng-select> 
+-->
+        <select class=form-control name="motif" ngModel #motif=ngModel required>
+         
+          <option *ngFor="let m of prod" value="{{m.id}}">{{m.id}}</option>
+        </select>
+        <input [(ngModel)]="emballage.produit" type="text" placeholder="type d'emballage" [disabled]="show" class="form-control" name="produit" />
+      
+    </div>
+    </nb-card-body>
+  </nb-card>
+  <div style="text-align:right;">
+    <button nbButton status="success" (click)="save()" [hidden]="show" style="cursor: pointer;align-content: center;">{{btn}}
+      &nbsp;<i class="fa fa-check" aria-hidden="true"></i></button>
+    &nbsp;
+    <button nbButton status="danger" style="cursor: pointer;align-content: center;" (click)="close()">Annuler
+      &nbsp;<i class="fa fa-window-close" aria-hidden="true"></i></button>
+  </div>
+</div>

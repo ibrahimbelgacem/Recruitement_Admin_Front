@@ -1,0 +1,35 @@
+<div style="width: 75vw;max-height: 75vh;">
+  <nb-card>
+    <nb-card-body>
+      <div class="row">
+      <div class="form-group col-sm-12 col-md-6 col-lg-3 input-group-sm">
+        <label class="label" for="reference">Référence :</label>
+        <input [(ngModel)]="produit.reference" type="text" placeholder="Référenceaaaaaaaa" [disabled]="show" class="form-control" name="reference" />
+      </div>
+      <div class="form-group col-sm-12 col-md-6 col-lg-3 input-group-sm">
+        <label class="label" for="designation">Désignation :</label>
+        <input [(ngModel)]="produit.name" type="text" placeholder="Désignation" [disabled]="show" class="form-control" name="designation111" />
+      </div>
+      <div class="form-group col-sm-12 col-md-6 col-lg-3 input-group-sm">
+        <label class="label" for="prix">Prix :</label>
+        <input [(ngModel)]="produit.price" type="text" placeholder="Prix" [disabled]="show" class="form-control" name="prix" />
+      </div>
+      <div class="form-group col-sm-12 col-md-6 col-lg-3 input-group-sm">
+        <label class="label" for="quantite">Quantité :</label>
+        <input type="text" [(ngModel)]="produit.quantity" placeholder="Quantité" [disabled]="show" class="form-control" name="quantite" />
+      </div>
+      <select class=form-control name="conditionings" [(ngModel)]="produit.conditionings" > 
+        <option *ngFor="let m of emb"  [ngValue]="m">{{m.packing}}</option>
+      </select>
+      
+    </div>
+    </nb-card-body>
+  </nb-card>
+  <div style="text-align:right;">
+    <button nbButton status="success" (click)="save()" [hidden]="show" style="cursor: pointer;align-content: center;">{{btn}}
+      &nbsp;<i class="fa fa-check" aria-hidden="true"></i></button>
+    &nbsp;
+    <button nbButton status="danger" style="cursor: pointer;align-content: center;" (click)="close()">Annuler
+      &nbsp;<i class="fa fa-window-close" aria-hidden="true"></i></button>
+  </div>
+</div>
